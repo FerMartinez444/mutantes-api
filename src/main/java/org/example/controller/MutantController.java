@@ -1,4 +1,5 @@
 package org.example.controller;
+import jakarta.validation.Valid;
 import org.example.dto.DnaRequest;
 import org.example.dto.StatsResponse;
 import org.example.service.MutantService;
@@ -16,7 +17,7 @@ public class MutantController {
     private final StatsService statsService;
 
     @PostMapping("/mutant")
-    public ResponseEntity<Void> checkMutant(@RequestBody DnaRequest dnaRequest){
+    public ResponseEntity<Void> checkMutant(@Valid @RequestBody DnaRequest dnaRequest){
         boolean isMutant = mutantService.analyzeDna(dnaRequest.getDna());
         if(isMutant){
             return ResponseEntity.ok().build();

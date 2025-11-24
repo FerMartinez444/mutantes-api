@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72c5a899-69a0-41b0-8e60-93517b06ff88" name="Changes" comment="" />
+    <list default="true" id="72c5a899-69a0-41b0-8e60-93517b06ff88" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/SwaggerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/validation/DnaValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/validation/ValidDna.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MutantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MutantController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/DnaRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/DnaRequest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +30,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ExamenMercado" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -37,34 +49,44 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="35w2EuMcNeq1pZGA03mhFHsMzzv" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build proyectoFinal.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MutantControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MutantControllerTest.testCheckMutant_InvalidDna_Returns400.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MutantDetectorTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.MutantDetectorTest.testMutantDiagonal.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MutantDetectorTest.testMutantVertical.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.MutantServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.proyectoFinal [:org.example.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.proyectoFinal [:org.example.MutantDetectorApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MutantDetectorTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MutantDetectorTest.testMutantHorizontal.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.Build proyectoFinal.executor": "Run",
+    "Gradle.MutantControllerTest.executor": "Run",
+    "Gradle.MutantControllerTest.testCheckMutant_InvalidDna_Returns400.executor": "Run",
+    "Gradle.MutantDetectorTest.executor": "Debug",
+    "Gradle.MutantDetectorTest.testMutantDiagonal.executor": "Run",
+    "Gradle.MutantDetectorTest.testMutantVertical.executor": "Run",
+    "Gradle.MutantServiceTest.executor": "Run",
+    "Gradle.proyectoFinal [:org.example.Main.main()].executor": "Run",
+    "Gradle.proyectoFinal [:org.example.MutantDetectorApplication.main()].executor": "Run",
+    "JUnit.MutantDetectorTest.executor": "Run",
+    "JUnit.MutantDetectorTest.testMutantHorizontal.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Gradle.MutantControllerTest">
     <configuration name="MutantControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -184,17 +206,6 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="ExamenMercado" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="ExamenMercado" />
-      <option name="filePath" />
       <method v="2" />
     </configuration>
     <recent_temporary>
