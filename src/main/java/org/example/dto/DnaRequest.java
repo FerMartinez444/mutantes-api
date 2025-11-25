@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 @Data
 public class DnaRequest implements Serializable{
-    @NotNull(message = "El AND no puede ser nulo")
     @ValidDna
+    @NotNull(message = "El AND no puede ser nulo")
     private String[] dna;
 }
