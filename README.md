@@ -2484,6 +2484,65 @@ Configura PostgreSQL en Docker y migra desde H2.
 
 ---
 
+##Diagrama de secuencia
+
+sequenceDiagram
+    actor Client as Cliente (API Consumer)
+    participant Controller as MutantController
+    participant Service as MutantService
+    participant Detector as MutantDetector
+    participant Repo as DnaRecordRepository
+    participant DB as H2 Database
+
+    Client->>Controller: POST /mutant {dna: [...]}
+    activate Controller
+    
+    Controller->>Service: analyzeDna(dna)
+    activate Service
+    
+    Service->>Service: Calcular Hash del ADN (SHA-256/HashCode)
+    
+    Service->>Repo: findByDnaHash(hash)
+    activate Repo
+    Repo->>DB: SELECT * FROM dna_records WHERE hash = ?
+    activate DB
+    DB-->>Repo: Resultado (Optional)
+    deactivate DB
+    Repo-->>Service: Retorna Optional<DnaRecord>
+    deactivate Repo
+
+    alt El ADN ya existe en Base de Datos (Cache Hit)
+        Service-->>Controller: Retorna isMutant (true/false)
+    else El ADN es nuevo (Cache Miss)
+        Service->>Detector: isMutant(dna)
+        activate Detector
+        Detector-->>Service: Retorna boolean (resultado del algoritmo)
+        deactivate Detector
+        
+        Service->>Repo: save(new DnaRecord)
+        activate Repo
+        Repo->>DB: INSERT INTO dna_records ...
+        activate DB
+        DB-->>Repo: OK
+        deactivate DB
+        Repo-->>Service: OK
+        deactivate Repo
+        
+        Service-->>Controller: Retorna boolean
+    end
+    
+    deactivate Service
+
+    alt es Mutante
+        Controller-->>Client: 200 OK
+    else es Humano
+        Controller-->>Client: 403 Forbidden
+    end
+    
+    deactivate Controller
+
+---
+
 ## 📚 Recursos Adicionales
 
 ### Documentación Oficial
