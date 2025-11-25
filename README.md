@@ -2484,8 +2484,11 @@ Configura PostgreSQL en Docker y migra desde H2.
 
 ---
 
-##Diagrama de secuencia
+## 📐 Diagrama de Secuencia
 
+El siguiente diagrama representa el flujo de ejecución del endpoint principal `POST /mutant`, detallando la interacción entre las capas y la optimización de caché con Hash.
+
+```mermaid
 sequenceDiagram
     actor Client as Cliente (API Consumer)
     participant Controller as MutantController
@@ -2500,7 +2503,7 @@ sequenceDiagram
     Controller->>Service: analyzeDna(dna)
     activate Service
     
-    Service->>Service: Calcular Hash del ADN (SHA-256/HashCode)
+    Service->>Service: Calcular Hash SHA-256
     
     Service->>Repo: findByDnaHash(hash)
     activate Repo
@@ -2516,7 +2519,7 @@ sequenceDiagram
     else El ADN es nuevo (Cache Miss)
         Service->>Detector: isMutant(dna)
         activate Detector
-        Detector-->>Service: Retorna boolean (resultado del algoritmo)
+        Detector-->>Service: Retorna boolean (resultado)
         deactivate Detector
         
         Service->>Repo: save(new DnaRecord)
@@ -2525,21 +2528,23 @@ sequenceDiagram
         activate DB
         DB-->>Repo: OK
         deactivate DB
-        Repo-->>Service: OK
+        Repo-->>Service: Registro Guardado
         deactivate Repo
-        
-        Service-->>Controller: Retorna boolean
     end
     
+    Service-->>Controller: Retorna boolean
     deactivate Service
 
-    alt es Mutante
+    alt Es Mutante
         Controller-->>Client: 200 OK
-    else es Humano
+    else Es Humano
         Controller-->>Client: 403 Forbidden
+    else Error (ADN Inválido)
+        Controller-->>Client: 400 Bad Request
     end
     
     deactivate Controller
+```
 
 ---
 
